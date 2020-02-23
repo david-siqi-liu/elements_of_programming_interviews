@@ -28,13 +28,45 @@
   >>> 15 ^ 4
   11
   # 15 is 1111, 4 is 100 => XOR is 1011, which is 11
-  
-  # ^ 1 can be used to switch boolean
-  >>> True ^ 1
-  0
-  >>> False ^ 1
-  1
   ```
+
+  - AND is used to extract a subset of bits
+  - OR is used to set a subset of bits
+  - XOR is used to toggle a subset of bits
+
+- Tricks
+
+  - To extract ith element of a number (starting from i = 0)
+
+    ```python
+    >>> (44 >> 5) & 1
+    1
+    >>> (44 >> 4) & 1
+    0
+    >>> (44 >> 3) & 1
+    1
+    ```
+
+  - ^1 can be used to switch boolean
+
+    ```python
+    >>> True ^ 1
+    0
+    
+    >>> False ^ 1
+    1
+    ```
+
+  - x & (x - 1) equals x with its lowest set bit erased
+
+    ```python
+    >>> 44 & (44 - 1)
+    40
+    # 44 is 101100, 44 - 1 = 43 is 101011
+    # AND is 101000
+    ```
+
+    - On the contrary, x & ~(x - 1) can be used to isolate the lowest set bit
 
 - Example: count the number of bits that are set to 1 in a positive integer
 
