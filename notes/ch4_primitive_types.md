@@ -5,7 +5,7 @@
 - Bit manipulation
 
   - Instead of treating that number as if it were a single value, they treat it as if it were a string of bits, written in twos-complement binary
-  - Negative numbers are written with a leading one instead of a leading zero
+  - Negative numbers are treated as their 2's complement value
 
 - Operators
 
@@ -30,24 +30,35 @@
   # 15 is 1111, 4 is 100 => XOR is 1011, which is 11
   ```
 
-  - AND is used to extract a subset of bits
-  - OR is used to set a subset of bits
-  - XOR is used to toggle a subset of bits
+  - ==AND is used to extract a subset of bits==
+  - ==OR is used to set a subset of bits==
+  - ==XOR is used to toggle a subset of bits==
 
 - Tricks
 
-  - To extract ith element of a number (starting from i = 0)
+  - To extract ith element of a number (starting from i = 0, from the right hand side)
+
+    - If exceeds, will simply return 0
 
     ```python
-    >>> (44 >> 5) & 1
+    # 44 is 101100
+    >>> (44 >> 0) & 1
+    0
+    >>> (44 >> 1) & 1
+    0
+    >>> (44 >> 2) & 1
+    1
+    >>> (44 >> 3) & 1
     1
     >>> (44 >> 4) & 1
     0
-    >>> (44 >> 3) & 1
+    >>> (44 >> 5) & 1
     1
+    >>> (44 >> 6) & 1
+    0
     ```
 
-  - ^1 can be used to switch boolean
+  - ^1 can be used to switch bits/Boolean
 
     ```python
     >>> True ^ 1
@@ -66,7 +77,16 @@
     # AND is 101000
     ```
 
-    - On the contrary, x & ~(x - 1) can be used to isolate the lowest set bit
+  - On the contrary, x & ~(x - 1) can be used to isolate the lowest set bit (LSB)\
+
+    ```python
+    >>> 44 & ~(44 - 1)
+    4
+    # 44 is 101100, ~(44 - 1) is 010100
+    # AND is 000100
+    ```
+
+    
 
 - Example: count the number of bits that are set to 1 in a positive integer
 
@@ -74,8 +94,8 @@
   def count_bits(x):
   	num_bits = 0
     while x:
-      num_bits += x & 1 # increment if 1
-      x >>= 1 # shift to the right by 1 place, basically divide by 2
+      num_bits += x & 1 # Increment counter if 1
+      x >>= 1 # Shift to the right by 1 place, basically divide by 2
     return num_bits
   ```
 
@@ -123,7 +143,7 @@
   1
   ```
 
-- To string manipulation
+- Numeric to string manipulation
 
   ```python
   >>> str(42)
