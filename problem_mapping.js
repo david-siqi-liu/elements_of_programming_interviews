@@ -180,7 +180,7 @@ problem_mapping = {
                 "total": 1001
             },
             "Python: even_odd_array.py": {
-                "passed": 0,
+                "passed": 1001,
                 "total": 1001
             }
         },
@@ -194,7 +194,7 @@ problem_mapping = {
                 "total": 204
             },
             "Python: dutch_national_flag.py": {
-                "passed": 0,
+                "passed": 204,
                 "total": 204
             }
         },
@@ -264,7 +264,7 @@ problem_mapping = {
                 "total": 402
             },
             "Python: buy_and_sell_stock.py": {
-                "passed": 0,
+                "passed": 402,
                 "total": 402
             }
         },
@@ -348,7 +348,7 @@ problem_mapping = {
                 "total": 8
             },
             "Python: offline_sampling.py": {
-                "passed": 0,
+                "passed": 8,
                 "total": 8
             }
         },
@@ -432,7 +432,7 @@ problem_mapping = {
                 "total": 51
             },
             "Python: spiral_ordering.py": {
-                "passed": 0,
+                "passed": 51,
                 "total": 51
             }
         },
@@ -532,7 +532,7 @@ problem_mapping = {
                 "total": 501
             },
             "Python: replace_and_remove.py": {
-                "passed": 0,
+                "passed": 501,
                 "total": 501
             }
         },

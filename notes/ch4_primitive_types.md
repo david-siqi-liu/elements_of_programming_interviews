@@ -164,10 +164,10 @@
   ```python
   # Floats are not infinite precision, so comparable to integers
   # These can be used as max-int and min-int
-  >>> float(inf)
+  >>> float('inf')
   inf
   
-  >>> float(-inf)
+  >>> float('-inf')
   -inf
   ```
 
@@ -179,7 +179,7 @@
   >>> random.randrange(50, 100, 5) # from 50 to 100 (inclusive), with 5 step-of-range
   80
   
-  >>> random.randint(8, 16)
+  >>> random.randint(8, 16) # inclusive
   16
   
   >>> random.random() # from 0 to 1

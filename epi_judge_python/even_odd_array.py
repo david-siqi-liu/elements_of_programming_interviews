@@ -8,8 +8,21 @@ from test_framework.test_utils import enable_executor_hook
 
 
 def even_odd(A: List[int]) -> None:
-    # TODO - you fill in here.
-    return
+    # To aim for O(1) space usage
+    # Pointers for end of even/beginning of odd
+    even, odd = 0, len(A) - 1
+
+    # Even pointer is before odd pointer
+    while even < odd:
+        # Element at even pointer is indeed even
+        if A[even] % 2 == 0:
+            even += 1
+        # Element at even pointer is actually odd, swap
+        else:
+            A[even], A[odd] = A[odd], A[even]
+            odd -= 1
+
+    return A
 
 
 @enable_executor_hook
