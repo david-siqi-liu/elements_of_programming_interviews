@@ -66,7 +66,7 @@
   >>> a
   [3, 2, 1]
   
-  >>> reversed(a) # Iterator
+  >>> reversed(a) # Iterator, can be used for for loop - reversed(range(0, len(A)))
   <list_reverseiterator object at 0x10e144dd0>
   
   >>> b = [5, 4, 6]
@@ -105,3 +105,11 @@
   >>> [[x ** 2 for x in row] for row in A]
   [[1, 4, 9], [16, 25, 36]]
   ```
+
+- Any
+
+  ```python
+  >>> if any([False, False, False, True]): "Some truth!"
+  'Some truth!'
+  ```
+
