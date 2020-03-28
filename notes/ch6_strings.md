@@ -18,3 +18,14 @@
   ['e', 'd', 'c', 'b', 'a']
   ```
 
+- Other
+
+  ```python
+  # Check alphanumerical
+  >>> "a".isalnum()
+  True
+  >>> ",".isalnum()
+  False
+  ```
+
+  

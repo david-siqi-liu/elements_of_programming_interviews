@@ -7,8 +7,16 @@ from test_framework.test_utils import enable_executor_hook
 # Assume s is a list of strings, each of which is of length 1, e.g.,
 # ['r', 'a', 'm', ' ', 'i', 's', ' ', 'c', 'o', 's', 't', 'l', 'y'].
 def reverse_words(s):
-    # TODO - you fill in here.
-    return
+    s.reverse()
+
+    i, j = 0, 0
+    while j < len(s):
+        if s[j] == ' ':
+            s[i:j] = reversed(s[i:j])
+            i = j + 1
+        j += 1
+
+    s[i:] = reversed(s[i:])
 
 
 @enable_executor_hook
