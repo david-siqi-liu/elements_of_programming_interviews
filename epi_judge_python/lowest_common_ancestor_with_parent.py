@@ -8,10 +8,32 @@ from test_framework.test_failure import TestFailure
 from test_framework.test_utils import enable_executor_hook
 
 
+def get_depth(tree: BinaryTreeNode) -> int:
+    if not tree:
+        return 0
+
+    return get_depth(tree.parent) + 1
+
+
 def lca(node0: BinaryTreeNode,
         node1: BinaryTreeNode) -> Optional[BinaryTreeNode]:
-    # TODO - you fill in here.
-    return None
+    if not node0 or not node1:
+        return None
+
+    node0_depth, node1_depth = get_depth(node0), get_depth(node1)
+
+    if node0_depth > node1_depth:
+        lower, higher = node0, node1
+    else:
+        lower, higher = node1, node0
+
+    for _ in range(abs(node0_depth - node1_depth)):
+        lower = lower.parent
+
+    while lower != higher:
+        lower, higher = lower.parent, higher.parent
+
+    return lower
 
 
 @enable_executor_hook

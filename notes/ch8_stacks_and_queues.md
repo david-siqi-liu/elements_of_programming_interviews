@@ -43,4 +43,38 @@
 
 - Queues - FIFO
 
-- 
+  - Enqueue & dequeue
+
+    ```python
+    # List implementation
+    >>> s = []
+    
+    # Enqueue
+    >>> s.append('a')
+    
+    # Peek
+    >>> s[0]
+    'a'
+    
+    # Dequeue
+    >>> s.pop(0)
+    'a'
+    >>> s
+    []
+    
+    # Size
+    >>> len(s)
+    0
+    
+    # IndexError for both Enqueue and Dequeue on an empty Queue
+    >>> s[0]
+    Traceback (most recent call last):
+      File "<stdin>", line 1, in <module>
+    IndexError: list index out of range
+    
+    >>> s.pop(0)
+    Traceback (most recent call last):
+      File "<stdin>", line 1, in <module>
+    IndexError: pop from empty list
+    ```
+

@@ -95,4 +95,9 @@
       return None
   ```
 
-  
+- To find common node between two LL (without cycle)
+  - Notice that if two LL have a common node, their tails must be the same
+  - Compute length of both LL
+  - Advance the longer LL by the difference in lenght
+  - Simultaneously advance both LL one at a time, compare nodes along the way
+  - If reaches end and yet no common node, return empty LL (i.e., ListNode().next)
