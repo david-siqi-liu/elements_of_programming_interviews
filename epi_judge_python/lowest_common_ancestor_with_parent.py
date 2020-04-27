@@ -15,25 +15,45 @@ def get_depth(tree: BinaryTreeNode) -> int:
     return get_depth(tree.parent) + 1
 
 
+# def lca(node0: BinaryTreeNode,
+#         node1: BinaryTreeNode) -> Optional[BinaryTreeNode]:
+#     if not node0 or not node1:
+#         return None
+#
+#     node0_depth, node1_depth = get_depth(node0), get_depth(node1)
+#
+#     if node0_depth > node1_depth:
+#         lower, higher = node0, node1
+#     else:
+#         lower, higher = node1, node0
+#
+#     for _ in range(abs(node0_depth - node1_depth)):
+#         lower = lower.parent
+#
+#     while lower != higher:
+#         lower, higher = lower.parent, higher.parent
+#
+#     return lower
+
+
 def lca(node0: BinaryTreeNode,
         node1: BinaryTreeNode) -> Optional[BinaryTreeNode]:
-    if not node0 or not node1:
-        return None
-
-    node0_depth, node1_depth = get_depth(node0), get_depth(node1)
-
-    if node0_depth > node1_depth:
-        lower, higher = node0, node1
-    else:
-        lower, higher = node1, node0
-
-    for _ in range(abs(node0_depth - node1_depth)):
-        lower = lower.parent
-
-    while lower != higher:
-        lower, higher = lower.parent, higher.parent
-
-    return lower
+    iter0, iter1 = node0, node1
+    nodes_on_path_to_root = set()
+    while iter0 or iter1:
+        # Ascend tree in tandem for these two nodes
+        if iter0:
+            if iter0 in nodes_on_path_to_root:
+                return iter0
+            else:
+                nodes_on_path_to_root.add(iter0)
+                iter0 = iter0.parent
+        if iter1:
+            if iter1 in nodes_on_path_to_root:
+                return iter1
+            else:
+                nodes_on_path_to_root.add(iter1)
+                iter1 = iter1.parent
 
 
 @enable_executor_hook
