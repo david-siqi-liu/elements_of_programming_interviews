@@ -14,8 +14,33 @@ Coordinate = collections.namedtuple('Coordinate', ('x', 'y'))
 
 def search_maze(maze: List[List[int]], s: Coordinate,
                 e: Coordinate) -> List[Coordinate]:
-    # TODO - you fill in here.
-    return []
+    # Set of visited nodes
+    status = collections.defaultdict(lambda: 'undiscovered')
+    status[s] = 'discovered'
+    # Paths
+    paths = collections.defaultdict(list)
+    paths[s] = [s]
+    # Stack - DFS
+    stack = [s]
+    while stack:
+        # Pop the top of the stack
+        v = stack.pop()
+        # All four directions
+        for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
+            # Next square
+            w = Coordinate(v.x + dx, v.y + dy)
+            # Check if it hasn't been visited, and it's valid (i.e., not black)
+            if status[w] == 'undiscovered' and path_element_is_feasible(maze, v, w):
+                # Discovered
+                status[w] = 'discovered'
+                # Set path
+                paths[w] = paths[v] + [w]
+                # Add to stack
+                stack.append(w)
+        # Finished visiting v
+        status[v] = 'visited'
+    # Return path
+    return paths[e]
 
 
 def path_element_is_feasible(maze, prev, cur):
