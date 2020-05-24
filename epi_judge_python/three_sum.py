@@ -4,8 +4,13 @@ from test_framework import generic_test
 
 
 def has_three_sum(A: List[int], t: int) -> bool:
-    # TODO - you fill in here.
-    return True
+    def has_two_sum(k: int) -> bool:
+        for n in A:
+            if k - n in A:
+                return True
+        return False
+
+    return any(has_two_sum(t - a) for a in A)
 
 
 if __name__ == '__main__':

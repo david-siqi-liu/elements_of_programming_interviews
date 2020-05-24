@@ -4,8 +4,15 @@ from test_framework import generic_test
 
 
 def majority_search(stream: Iterator[str]) -> str:
-    # TODO - you fill in here.
-    return ''
+    candidate, count = None, 0
+    for s in stream:
+        if count == 0:
+            candidate, count = s, 1
+        elif candidate == s:
+            count += 1
+        else:
+            count -= 1
+    return candidate
 
 
 def majority_search_wrapper(stream):

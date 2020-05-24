@@ -4,8 +4,15 @@ from test_framework import generic_test
 
 
 def get_max_trapped_water(heights: List[int]) -> int:
-    # TODO - you fill in here.
-    return 0
+    left, right = 0, len(heights) - 1
+    max_water = 0
+    while left < right:
+        max_water = max(max_water, (right - left) * min(heights[left], heights[right]))
+        if heights[left] > heights[right]:
+            right -= 1
+        else:
+            left += 1
+    return max_water
 
 
 if __name__ == '__main__':
