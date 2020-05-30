@@ -8,8 +8,15 @@ from test_framework.test_utils import enable_executor_hook
 
 def decompose_into_dictionary_words(domain: str,
                                     dictionary: Set[str]) -> List[str]:
-    # TODO - you fill in here.
-    return []
+    A = [[] for _ in range(len(domain) + 1)]
+    A[0] = [""]
+
+    for i in range(1, len(domain) + 1):
+        for j in range(i):
+            if len(A[j]) > 0 and domain[j:i] in dictionary:
+                A[i] = A[j] + [domain[j:i]]
+
+    return A[-1][1:]
 
 
 @enable_executor_hook
