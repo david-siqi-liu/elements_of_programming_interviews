@@ -16,6 +16,9 @@
   # Reverse completely
   >>> [s[~i] for i in range(len(s))]
   ['e', 'd', 'c', 'b', 'a']
+  
+  # Or can do
+  >>> [c for c in reversed(s)]
   ```
 
 - Other
@@ -26,6 +29,9 @@
   True
   >>> ",".isalnum()
   False
+  
+# Remove punctuations
+  >>> paragraph = re.sub(r'[\!\?\'\,\;\.]', ' ', paragraph) # Replace with space, not empty
   ```
-
+  
   

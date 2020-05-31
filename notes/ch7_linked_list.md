@@ -63,8 +63,17 @@
 - If the required return is a LL, can
 
   - Create a dummy head using ListNode()
+
   - Return dummy head.next
+
   - DO NOT initialize to None!
+
+    ```python
+    node = ListNode()
+    dummy = node
+    ...
+    return dummy.next
+    ```
 
 - To reverse a singly LL iteratively
 
@@ -78,7 +87,7 @@
       ptr_curr.next = ptr_prev # Reverse!
       ptr_prev = ptr_curr # Prepare for next iteration
       ptr_curr = ptr_next
-    return prev
+    return ptr_prev
   ```
 
 - To detect cycle

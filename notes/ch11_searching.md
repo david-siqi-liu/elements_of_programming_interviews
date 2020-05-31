@@ -16,7 +16,7 @@ def bsearch(t, A):
   return -1
 ```
 
-- Use `bisect` library
+- Use `bisect` library on a sorted array
 
   ```python
   >>> import bisect
@@ -30,6 +30,21 @@ def bsearch(t, A):
   ```
 
   - If target > everything in the list, `len(l)` is returned, so need to check that
+
+  - If target not in list, `-1` is returned, so need to check that
+
+  - If we want to find specific value, must check `nums[bisect.bisect_left(nums, target)] == target`
+
+    ```python
+    # LeetCode 34
+    def searchRange(nums: List[int], target: int) -> List[int]:
+        pos_start = bisect.bisect_left(nums, target)
+        if pos_start == -1 or pos_start == len(nums) or nums[pos_start] != target:
+            return [-1, -1]
+        else:
+            pos_end = bisect.bisect_right(nums, target) - 1
+            return [pos_start, pos_end]
+    ```
 
 
 ## Partition
