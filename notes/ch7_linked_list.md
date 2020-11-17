@@ -71,6 +71,9 @@
     ```python
     node = ListNode()
     dummy = node
+    while ...:
+      node.next = ListNode(...)
+      node = node.next
     ...
     return dummy.next
     ```

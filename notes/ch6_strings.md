@@ -30,8 +30,11 @@
   >>> ",".isalnum()
   False
   
-# Remove punctuations
-  >>> paragraph = re.sub(r'[\!\?\'\,\;\.]', ' ', paragraph) # Replace with space, not empty
   ```
+# Remove punctuations
+```
+paragraph = re.sub(r'[\!\?\'\,\;\.]', ' ', paragraph) # Replace with space, not empty
+```
+
   
-  
+
